@@ -1,0 +1,7 @@
+SELECT DISTINCT Clients.Name
+FROM Clients INNER JOIN Purchaises ON Clients.CustomerID = Purchaises.CustomerID
+WHERE Purchaises.ProductName = "Молоко"
+EXCEPT
+SELECT DISTINCT Clients.Name
+FROM Clients INNER JOIN Purchaises ON Clients.CustomerID = Purchaises.CustomerID
+WHERE Purchases.ProductName = "Сметана" AND Purchaises.PurchaiseDateTime Between Date() and Date() - 30
